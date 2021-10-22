@@ -31,7 +31,8 @@ public class Worker {
                 System.out.println(" [x] Done");
             }
         };
-        boolean autoAck = true; // acknowledgment is covered below
+        //turn on message acknowledgment
+        boolean autoAck = false; // acknowledgment is covered below
         channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, consumerTag -> { });
     }
     //fake task
