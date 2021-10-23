@@ -15,9 +15,8 @@ public class NewTask {
             //declare a queue
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             String message = String.join(" ", args);
-
             //it still needs some time for raabitmq to accept a message and save
-            channel.basicPublish("", "task_queue",
+            channel.basicPublish("logs", "task_queue",
                     MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
         }
